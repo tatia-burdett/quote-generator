@@ -9,12 +9,11 @@ import Results from "../Results/Results";
 
 export default function QuoteGenerator() {
     const [currentQuote, setCurrentQuote] = useState()
-    const [category, setCategory] = useState()
 
     const handleFetch = async (event) => {
         event.preventDefault()
-        setCategory(event.target.category.value)
-        console.log(category)
+        const category = event.target.category.value
+        console.log(event.target.category.value)
         const response = await getQuote(category)
         setCurrentQuote(response)
       }
