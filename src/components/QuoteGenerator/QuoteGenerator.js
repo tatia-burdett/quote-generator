@@ -11,9 +11,9 @@ export default function QuoteGenerator() {
     const [currentQuote, setCurrentQuote] = useState()
     const [category, setCategory] = useState()
 
-    const handleFetch = e => async (event) => {
-        e.preventDefault()
-        setCategory(e.target.category.value)
+    const handleFetch = async (event) => {
+        event.preventDefault()
+        setCategory(event.target.category.value)
         console.log(category)
         const response = await getQuote(category)
         setCurrentQuote(response)
