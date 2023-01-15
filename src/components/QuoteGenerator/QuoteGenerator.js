@@ -15,15 +15,14 @@ export default function QuoteGenerator() {
         const category = event.target.category.value
         console.log(event.target.category.value)
         const response = await getQuote(category)
-        setCurrentQuote(response)
+        console.log(response.data[0].quote, "RESPONSE")
+        setCurrentQuote(response.data[0].quote)
       }
 
     return (
         <div>
             <GetForm handleFetch={handleFetch}/>
 
-            {currentQuote}
-  
             <Results currentQuote={currentQuote}/>
         </div>
     );
