@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function Results() {
+export default function Results({ currentQuote="quote" }) {
+
     return (
       <div>
-        Results
+        {currentQuote}
       </div>
     );
   }

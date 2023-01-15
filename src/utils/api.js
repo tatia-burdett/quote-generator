@@ -7,9 +7,14 @@ async function getQuote(category) {
         }
     }
     const url = `https://api.api-ninjas.com/v1/quotes?category=${category}`
-    const quote = (await axios.get(url,config)).data[0]
-    console.log(quote)
-    return quote ? quote : "missing"
+    try { 
+        const res = (await axios.get(url,config))
+        console.log(res.data[0].quote)
+        return res
+    }
+    catch (error) {
+        console.log(error)
+    }
 }
 
 export default getQuote

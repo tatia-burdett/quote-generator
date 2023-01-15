@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function GetForm(props) {
+export default function GetForm({ handleFetch }) {
 
   return (
     <div>
-      <form onSubmit={props.handleFetch}>
+      <form onSubmit={handleFetch}>
         <legend>Get Quote</legend>
 
-        <label for="category">Category</label>
+        <label htmlFor="category">Category</label>
         <input type="text" name="category" id="category" placeholder="money"/>
 
         <button type="submit" value="Submit">Submit</button>

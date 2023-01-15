@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import getQuote from "../../utils/api"
 
@@ -8,21 +8,24 @@ import Results from "../Results/Results";
 
 
 export default function QuoteGenerator() {
-    const handleFetch = (e) => {
+    const [currentQuote, setCurrentQuote] = useState()
+    const [category, setCategory] = useState()
+
+    const handleFetch = e => async (event) => {
         e.preventDefault()
-        console.log(e.target.category.value)
-        const category = e.target.category.value
-        getQuote(category)
+        setCategory(e.target.category.value)
+        console.log(category)
+        const response = await getQuote(category)
+        setCurrentQuote(response)
       }
 
-
     return (
-      <div>
         <div>
             <GetForm handleFetch={handleFetch}/>
+
+            {currentQuote}
   
-            <Results/>
+            <Results currentQuote={currentQuote}/>
         </div>
-      </div>
     );
   }

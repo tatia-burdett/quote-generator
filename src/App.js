@@ -5,10 +5,10 @@ function App() {
   return (
     <div className="App">
       <header><h1>Quote Generator</h1></header>
-      <body>
+      <div>
         <QuoteGenerator/>
 
-      </body>
+      </div>
       <footer>
 
       </footer>
